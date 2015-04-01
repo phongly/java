@@ -12,15 +12,17 @@ package Buoi04;
  */
 public class PhanMem extends SanPham {
     private String phienBan;
-//    private static int countSP;
+    private static int countPM = 0;
 
     public PhanMem() {
         super();
+        PhanMem.countPM++;
     }
-
+    
     public PhanMem(String phienBan, String ma, String ten, Double gia) {
         super(ma, ten, gia);
         this.phienBan = phienBan;
+        PhanMem.countPM++;
     } 
     
     public String getPhienBan() {
@@ -31,8 +33,20 @@ public class PhanMem extends SanPham {
         this.phienBan = phienBan;
     }
     
+    @Override
+    public int getSoLuong() {
+        return PhanMem.countPM;
+    }
+    
     public static void main(String[] args) {
+        PhanMem pm = new PhanMem();
+        new PhanMem();
+        new PhanMem();
+        Sach sach = new Sach();
+        int sl = pm.getSoLuong();
+        int sl2 = sach.getSoLuong();
         
+        System.out.println(sl2);
     }
     
 }
