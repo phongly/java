@@ -13,50 +13,55 @@ import java.util.*;
  * @author ly.phong
  */
 public class CuaHang {
-    private SanPham[] sp;
+//    private SanPham[] sp;
+    ArrayList<SanPham> sp = new ArrayList<>();
     
-    private CuaHang nhap(SanPham newSp){
-        this.sp[sp.length] = newSp;
-        return this;
-    }
+//    
+//    private CuaHang nhap(SanPham newSp){
+//        this.sp[sp.length] = newSp;
+//        return this;
+//    }
     
     public CuaHang nhapSP() {
         Scanner scan = new Scanner(System.in);
         System.out.println("Ban can nhap Sach hay Phan Mem(1-Sach, 2-Phan Mem)");
         
         int chon = scan.nextInt();
-        System.out.println("Nhap vao ten Sach");
-        String ten = scan.nextLine();        
+//        System.out.println("Nhap vao ten Sach");
+//        String ten = scan.nextLine();        
 //        CuaHang ch = new CuaHang();
         if(chon == 1) {         
-//            System.out.println("Nhap vao ten Sach");
-//            String ten = scan.nextLine();
-//            System.out.println("Nhap vao ten Tac Gia");
-//            String tacGia = scan.nextLine();
-            String tacGia = "";
+            System.out.println("Nhap vao ten Sach");
+            String ten = scan.next();
+            System.out.println("Nhap vao ten Tac Gia");
+            String tacGia = scan.next();
+//            String tacGia = "";
             System.out.println("Nhap vao Gia");
             Double gia = scan.nextDouble();
             System.out.println("Nhap vao Ma");
-            String ma = scan.nextLine();
+            String ma = scan.next();
             
-            Sach newSach = new Sach(tacGia, ma, ten, gia);
-            this.nhap(newSach);
+            Sach newSach; 
+            newSach = new Sach(tacGia, ma, ten, gia);
+            this.sp.add(newSach);
+//            System.out.println(this.sp.length);
+//            this.sp[this.sp.length] = newSach;
         }
         if(chon == 2) {
             System.out.println("Nhap vao ten Phan Mem");
-//            String ten = scan.nextLine();
+            String ten = scan.next();
             System.out.println("Nhap vao ten Phien Ban");
-            String phienBan = scan.nextLine();
+            String phienBan = scan.next();
             System.out.println("Nhap vao Gia");
             Double gia = scan.nextDouble();
             System.out.println("Nhap vao Ma");
-            String ma = scan.nextLine();
+            String ma = scan.next();
             
             PhanMem newPhanMem = new PhanMem(phienBan, ma, ten, gia);
-            this.nhap(newPhanMem);
+            this.sp.add(newPhanMem);
         }
         System.out.println("Ban co muon nhap them san pham? Yes(y) or No(n)");
-        String muon = scan.nextLine();
+        String muon = scan.next();
         if("y".equalsIgnoreCase(muon)) {
             this.nhapSP();
         }
@@ -67,6 +72,7 @@ public class CuaHang {
         for (SanPham sanPham : sp) {
             if(sanPham instanceof Sach) {
                 Sach sach = (Sach)sanPham;
+                System.out.println("Cac Sach co trong cua hang:");
                 System.out.println("Ten Sach:");
                 System.out.println(sach.getTen());
                 System.out.println("Tac Gia:");
@@ -78,6 +84,7 @@ public class CuaHang {
             }
             if(sanPham instanceof PhanMem) {
                 PhanMem pm = (PhanMem)sanPham;
+                System.out.println("Cac Sach co trong cua hang:");
                 System.out.println("Ten Phan Mem:");
                 System.out.println(pm.getTen());
                 System.out.println("Phien Ban:");
@@ -92,7 +99,7 @@ public class CuaHang {
     }
     
     public int tinhTongSP() {
-        return this.sp.length;
+        return this.sp.size();
     }
     
     public Sach kiemSach(String ma) {
@@ -120,6 +127,6 @@ public class CuaHang {
     public static void main(String[] args) {
         CuaHang ch = new CuaHang();
         ch.nhapSP();
-//        ch.xuatSP();
+        ch.xuatSP();
     }
 }
