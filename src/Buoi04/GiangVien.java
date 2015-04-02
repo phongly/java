@@ -17,7 +17,10 @@ public class GiangVien {
     private String dienThoai;
     private double luongTrenGio = 0; // luong tren 1 gio day
     private int soGioDayThucTe = 0;
-
+    private String loaiGV = "";
+    public GiangVien() {
+        
+    }
     public GiangVien(String ten, String email, String diaChi, String dienThoai) {
         this.ten = ten;
         this.email = email;
@@ -57,10 +60,6 @@ public class GiangVien {
     public void setDienThoai(String dienThoai) {
         this.dienThoai = dienThoai;
     }
-    
-    public double tinhLuong() {
-        return 0;
-    }
 
     public double getLuongTrenGio() {
         return luongTrenGio;
@@ -77,6 +76,12 @@ public class GiangVien {
     public void setSoGioDayThucTe(int soGioDayThucTe) {
         this.soGioDayThucTe = soGioDayThucTe;
     }
+           
+    public double tinhLuong() {
+        return 0;
+    }
     
-    
+    public String getLoaiGV() {
+        return this.loaiGV;
+    }
 }
