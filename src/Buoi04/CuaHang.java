@@ -27,15 +27,12 @@ public class CuaHang {
         System.out.println("Ban can nhap Sach hay Phan Mem(1-Sach, 2-Phan Mem)");
         
         int chon = scan.nextInt();
-//        System.out.println("Nhap vao ten Sach");
-//        String ten = scan.nextLine();        
-//        CuaHang ch = new CuaHang();
+
         if(chon == 1) {         
             System.out.println("Nhap vao ten Sach");
             String ten = scan.next();
             System.out.println("Nhap vao ten Tac Gia");
             String tacGia = scan.next();
-//            String tacGia = "";
             System.out.println("Nhap vao Gia");
             Double gia = scan.nextDouble();
             System.out.println("Nhap vao Ma");
@@ -44,8 +41,6 @@ public class CuaHang {
             Sach newSach; 
             newSach = new Sach(tacGia, ma, ten, gia);
             this.sp.add(newSach);
-//            System.out.println(this.sp.length);
-//            this.sp[this.sp.length] = newSach;
         }
         if(chon == 2) {
             System.out.println("Nhap vao ten Phan Mem");

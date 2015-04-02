@@ -15,6 +15,8 @@ public class GiangVien {
     private String email;
     private String diaChi;
     private String dienThoai;
+    private double luongTrenGio = 0; // luong tren 1 gio day
+    private int soGioDayThucTe = 0;
 
     public GiangVien(String ten, String email, String diaChi, String dienThoai) {
         this.ten = ten;
@@ -59,4 +61,22 @@ public class GiangVien {
     public double tinhLuong() {
         return 0;
     }
+
+    public double getLuongTrenGio() {
+        return luongTrenGio;
+    }
+
+    public void setLuongTrenGio(double luongTrenGio) {
+        this.luongTrenGio = luongTrenGio;
+    }
+
+    public int getSoGioDayThucTe() {
+        return soGioDayThucTe;
+    }
+
+    public void setSoGioDayThucTe(int soGioDayThucTe) {
+        this.soGioDayThucTe = soGioDayThucTe;
+    }
+    
+    
 }
