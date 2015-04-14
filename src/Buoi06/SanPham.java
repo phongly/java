@@ -13,16 +13,16 @@ package Buoi06;
 public class SanPham {
     private String ma;
     private String ten;
-    private Double gia;
+//    private Double gia;
 
     public SanPham() {
 
     }
 
-    public SanPham(String ma, String ten, Double gia) {
+    public SanPham(String ma, String ten) {
         this.ma = ma;
         this.ten = ten;
-        this.gia = gia;
+//        this.gia = gia;
     }
 
     
@@ -42,11 +42,4 @@ public class SanPham {
         this.ten = ten;
     }
 
-    public Double getGia() {
-        return gia;
-    }
-
-    public void setGia(Double gia) {
-        this.gia = gia;
-    }
 }

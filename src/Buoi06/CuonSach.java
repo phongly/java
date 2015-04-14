@@ -10,20 +10,20 @@ package Buoi06;
  *
  * @author ly.phong
  */
-public class cuonSach extends Sach{
+public class CuonSach extends Sach{
     private String maCuonSach;
     Boolean daBan;
 
-    public cuonSach() {
+    public CuonSach() {
         this.daBan = false;
     }
 
-    public cuonSach(String maBan) {
+    public CuonSach(String maBan) {
         this.maCuonSach = maBan;
         this.daBan = false;
     }
 
-    public cuonSach(String maBan, Boolean daBan) {
+    public CuonSach(String maBan, Boolean daBan) {
         this.maCuonSach = maBan;
         this.daBan = daBan;
     }

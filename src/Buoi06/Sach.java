@@ -6,6 +6,8 @@
 
 package Buoi06;
 
+import java.util.AbstractList;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,15 +17,15 @@ import java.util.List;
 public class Sach extends SanPham{
     private String tacGia;
     private int soLuongTon;
-    private List<cuonSach> cacCuonSach;
-
+    private List<CuonSach> cacCuonSach;
+    private double gia;
     public Sach() {
         super();
-        this.soLuongTon = 0;
     }
 
     public Sach(String tacGia, String ma, String ten, Double gia) {
-        super(ma, ten, gia);
+        super(ma, ten);
+        this.gia = gia;
         this.soLuongTon = 0;
         this.tacGia = tacGia;
     }
@@ -36,28 +38,27 @@ public class Sach extends SanPham{
         this.tacGia = tacGia;
     }
     
-    public Sach themSach(cuonSach cuonSach) {
+    public CuonSach themSach(CuonSach cuonSach) {
         this.cacCuonSach.add(cuonSach);
-        this.soLuongTon++;
-        return this;
+        return cuonSach;
     }
   
-    public Sach themSach(String maCuonSach) {
-        cuonSach newCuonSach = new cuonSach(maCuonSach);
+    public CuonSach themSach(String maCuonSach) {
+        CuonSach newCuonSach = new CuonSach(maCuonSach);
         this.cacCuonSach.add(newCuonSach);
-        this.soLuongTon++;
-        return this;
+        return newCuonSach;
     }
 
-    public Sach banSach(cuonSach cuonSach) {
-        for (cuonSach sachCanBan : cacCuonSach) {
+    public CuonSach banSach(CuonSach cuonSach) {
+        CuonSach sachBan = null;
+        for (CuonSach sachCanBan : cacCuonSach) {
             if(cuonSach.getMaCuonSach().equalsIgnoreCase(sachCanBan.getMaCuonSach())) {
                 sachCanBan.daBan = true;
+                sachBan = sachCanBan;
                 break;
             }
         }
-        this.soLuongTon--;
-        return this;
+        return cuonSach;
     }
     
     /**
@@ -65,19 +66,35 @@ public class Sach extends SanPham{
      * @param maCuonSach
      * @return
      */
-    public Sach banSach(String maCuonSach) {
-        for (cuonSach sachCanBan : cacCuonSach) {
+    public CuonSach banSach(String maCuonSach) {
+        CuonSach sachBan = null;
+        for (CuonSach sachCanBan : cacCuonSach) {       
             if(sachCanBan.getMaCuonSach().equalsIgnoreCase(maCuonSach)) {
                 sachCanBan.daBan = true;
+                sachBan = sachCanBan;
                 break;
             }
         }
-        this.soLuongTon--;
-        return this;
+        return sachBan;
     }
 
     public int getSoLuongTon() {
+        for (CuonSach sach : cacCuonSach) {
+            if(!sach.daBan)
+                soLuongTon++;
+        }
         return soLuongTon;
+    }
+    
+    public static void main(String[] args) {
+        Sach sachJava = new Sach("Johnh Cei", "JoJ", "Java of John", 500.000);
+        sachJava.themSach(new CuonSach("1011"));
+        sachJava.themSach(new CuonSach("1012"));
+        sachJava.banSach("1011");
+        sachJava.banSach("1012");
+        sachJava.banSach("1012");
+        System.out.println("so luong: "+sachJava.getSoLuongTon());
+//        sachJava.th
     }
     
 }

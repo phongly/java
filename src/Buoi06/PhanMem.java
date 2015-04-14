@@ -17,8 +17,8 @@ public class PhanMem extends SanPham {
         super();
     }
     
-    public PhanMem(String phienBan, String ma, String ten, Double gia) {
-        super(ma, ten, gia);
+    public PhanMem(String phienBan, String ma, String ten) {
+        super(ma, ten);
         this.phienBan = phienBan;
     } 
     
