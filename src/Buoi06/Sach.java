@@ -44,7 +44,7 @@ public class Sach extends SanPham{
     }
   
     public CuonSach themSach(String maCuonSach) {
-        CuonSach newCuonSach = new CuonSach(maCuonSach);
+        CuonSach newCuonSach = new CuonSach();
         this.cacCuonSach.add(newCuonSach);
         return newCuonSach;
     }
@@ -89,11 +89,12 @@ public class Sach extends SanPham{
     public static void main(String[] args) {
         Sach sachJava = new Sach("Johnh Cei", "JoJ", "Java of John", 500.000);
         sachJava.themSach(new CuonSach("1011"));
-        sachJava.themSach(new CuonSach("1012"));
+        String tacgia = sachJava.themSach(new CuonSach("1012")).getTacGia();
         sachJava.banSach("1011");
         sachJava.banSach("1012");
-        sachJava.banSach("1012");
+//        sachJava.banSach("1012");
         System.out.println("so luong: "+sachJava.getSoLuongTon());
+        System.out.println("tac gia: "+tacgia);
 //        sachJava.th
     }
     

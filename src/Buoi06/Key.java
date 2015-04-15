@@ -32,7 +32,7 @@ public class Key extends PhanMem{
         this.maKey = maKey;
         this.gia = gia;
     }
-
+                    
     
     public String getMaKey() {
         return maKey;
