@@ -6,6 +6,7 @@
 
 package Buoi06;
 
+import java.sql.Date;
 /**
  *
  * @author ly.phong
@@ -14,6 +15,7 @@ public class Key extends PhanMem{
     private String maKey;
     private int soMay = 1; //  1 2 3
     Boolean hetHan = false;
+    private Date ngayHetHan;
     private double gia;
     
     public Key(String maKey) {
@@ -49,5 +51,31 @@ public class Key extends PhanMem{
     public void setSoMay(int soMay) {
         this.soMay = soMay;
     }
+
+    public Boolean getHetHan() {
+        return hetHan;
+    }
+
+    public void setHetHan(Boolean hetHan) {
+        this.hetHan = hetHan;
+    }
+
+    public Date getNgayHetHan() {
+        return ngayHetHan;
+    }
+
+    public void setNgayHetHan(Date ngayHetHan) {
+        this.ngayHetHan = ngayHetHan;
+    }
+
+    public double getGia() {
+        return gia;
+    }
+
+    public void setGia(double gia) {
+        this.gia = gia;
+    }
+    
+    
     
 }
